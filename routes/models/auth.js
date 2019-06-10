@@ -1,7 +1,4 @@
 module.exports = (router, Users, passport) =>{
-  router.get('/signup', function(req, res, next) {
-      res.render('signup',{title:"signup"});
-  })
   router.post('/signup', async (req, res) => {
       if(req.body.is_admin == "ustina0409") req.body.is_admin = 1;
       else req.body.is_admin = 0;
@@ -14,11 +11,11 @@ module.exports = (router, Users, passport) =>{
         if(e instanceof ValidationError) return res.status(400).json({message: e.message});
         if(e instanceof paramsError) return res.status(400).json({message: e.message});
       }
-      return res.status(200).redirect('/');
+      return res.status(200).res.send({ success: true, message: 'SUCCESS'});
   })
 
   .post('/signin', passport.authenticate('local'), async (req,res)=>{
-      res.status(200).redirect('/');
+      res.status(200).res.send({ success: true, message: 'SUCCESS', user : req.user })
 
   })
 
@@ -30,7 +27,7 @@ module.exports = (router, Users, passport) =>{
       if(e instanceof ValidationError) return res.status(400).json({message: e.message});
       if(e instanceof paramsError) return res.status(400).json({message: e.message});
     }
-    res.status(200).redirect('/');
+    res.status(200).res.send({ success: true, message: 'SUCCESS' });
   })
 
   // .get('/auth/facebook', passport.authenticate('facebook'))

@@ -41,7 +41,7 @@ module.exports = (router, Users, Locates, Foods)=>{
       try{
         if(id){
           const location = Locates.findOne({id: id}, {_id : 0}, function(err, locates){
-            if(locates) return res.status(200).send(locates);
+            if(locates) return res.status(200).send({ success: true, message: 'SUCCESS',location : locates});
             else return res.status(404).json({error: "not found"});
           });
         }
@@ -56,8 +56,8 @@ module.exports = (router, Users, Locates, Foods)=>{
       const id = req.body.id;
       try{
         if(id){
-          const food = Foods.findOne({id: id}, {_id : 0 }, function(err, locates){
-            if(food) res.status(200).send(food);
+          const food = Foods.findOne({id: id}, {_id : 0 }, function(err, foods){
+            if(foods) res.status(200).send({ success: true, message: 'SUCCESS',food : foods});
             else return res.status(404).json({error: "not found"});
           });
         }

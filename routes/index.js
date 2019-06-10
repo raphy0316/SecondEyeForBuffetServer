@@ -1,9 +1,7 @@
-module.exports = (router, Users,Boards, Foods, Locates, passport) =>{
-  var boards = require('./models/boards')(router, Users, Boards);
+module.exports = (router, Users, Foods, Locates, passport) =>{
   var auth = require('./models/auth')(router, Users, passport);
   var users = require('./models/users')(router, Users);
   var arrangement = require('./models/arrangement')(router, Users, Locates, Foods);
-  router.use('/boards', boards);
   router.use('/auth', auth);
   router.use('/users', users);
   router.use('/arrangement', arrangement);

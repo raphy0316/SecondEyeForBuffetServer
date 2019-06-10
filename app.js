@@ -14,7 +14,6 @@ import device from 'express-device';
 
 var app = express();
 
-import {Boards} from './mongo';
 import {Users} from './mongo';
 import {Locates} from './mongo';
 import {Foods} from './mongo';
@@ -61,7 +60,7 @@ app.use(function(err, req, res, next) {
   res.render('error');
 });
 
-var router = require('./routes/index')(express.Router(), Users, Boards, Foods, Locates, passport);
+var router = require('./routes/index')(express.Router(), Users, Foods, Locates, passport);
 
 app.use('/', router);
 
