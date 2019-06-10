@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title><%= title %></title>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+    <script src="http://code.jquery.com/jquery-latest.min.js"></script>
+    <script>
+      function submitContents(option) {
+          var id = $('#id').val();
+          var passwd = $('#passwd').val();
+
+          if(option == 'add') {
+              // 새 글 등록 시
+              if(id == ''||passwd =='') {
+                  alert("아이디와 비밀번호 모두 있어야합니다.");
+                  return;
+              } else {
+                  $('#signin').submit();
+              }
+          }
+      }
+    </script>
+  </head>
+  <body>
+    <h1><%= title %></h1>
+    <p>Welcome to <%= title %></p>
+    <%if(user){%>
+      <table border="1">
+        <tr>
+          <td>id: <%=user.id%></td>
+          <td>name: <%=user.name%></td>
+          <a href="/logout">로그아웃</a>
+      <%if(user.is_admin==true){%>
+        <a href="/users">유저관리</a>
+      <%}%>
+        </td>
+      </table>
+    <%}else{%>
+      <form id="signin" action="/auth/signin" method="post">
+              <input type="text" class="loginSubject" id="id" name="id" placeholder="id">
+              <input type="text" class="loginSubject" id="passwd" name="passwd" placeholder="passwd">
+      </form>
+      <div id = "new" class="addBtngroup">
+          <a onclick="submitContents('add');"><div>SUBMIT</div></a>
+          <a href="/auth/signup"><div>회원가입</div></a>
+      </div>
+    <%}%>
+
+
+
+  </body>
+</html>

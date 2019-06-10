@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title><%= title %></title>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+    <script src="http://code.jquery.com/jquery-latest.min.js"></script>
+    <script>
+      function submitContents(option) {
+          var id = $('#addId').val();
+          var passwd = $('#addPasswd').val();
+          var name = $('#addName').val();
+
+          if(option == 'add') {
+              // 새 글 등록 시
+              if(name == '' || id == ''||passwd =='') {
+                  alert("제목과 내용 모두 있어야합니다.");
+                  return;
+              } else {
+                  $('#signup').submit();
+              }
+          }
+      }
+    </script>
+  </head>
+  <body>
+    <h1><%= title %></h1>
+    <p>Welcome to <%= title %></p>
+    <form id="signup" action="/auth/signup" method="post">
+            <input type="text" class="inputSubject" id="id" name="id" placeholder="id">
+            <input type="text" class="inputSubject" id="passwd" name="passwd" placeholder="passwd">
+            <input type="text" class="inputSubject" id="name" name="name" placeholder="name">
+            <input type="text" class="inputSubject" id="pn" name = "pn" placeholder="pn">
+            <input type="email" class="email" id="email" name="email" placeholder="email">
+            <input type="text" class="inputSubject" id="is_admin" name="is_admin" placeholder="adminPasswd">
+    </form>
+    <div id = "new" class="addBtngroup">
+        <a onclick="submitContents('add');"><div>SUBMIT</div></a>
+        <a onclick="cancelWriteForm('cancel');"><div>CANCEL</div></a>
+    </div>
+  </body>
+</html>
