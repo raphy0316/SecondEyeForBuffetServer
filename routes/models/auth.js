@@ -1,5 +1,5 @@
 module.exports = (router, Users, passport) =>{
-  router.post('/signup', async (req, res) => {
+  router.post('/auth/signup', async (req, res) => {
       if(req.body.is_admin == "ustina0409") req.body.is_admin = 1;
       else req.body.is_admin = 0;
       const data = req.body;
@@ -11,15 +11,15 @@ module.exports = (router, Users, passport) =>{
         if(e instanceof ValidationError) return res.status(400).json({message: e.message});
         if(e instanceof paramsError) return res.status(400).json({message: e.message});
       }
-      return res.status(200).res.send({ success: true, message: 'SUCCESS'});
+      return res.status(200).send({ success: true, message: 'SUCCESS'});
   })
 
-  .post('/signin', passport.authenticate('local'), async (req,res)=>{
-      res.status(200).res.send({ success: true, message: 'SUCCESS', user : req.user })
+  .post('/auth/signin', passport.authenticate('local'), async (req,res)=>{
+      res.status(200).send({ success: true, message: 'SUCCESS', user : req.user })
 
   })
 
-  .get('/logout', async (req, res)=>{
+  .get('/auth/logout', async (req, res)=>{
     try{
       await req.logout();
     }catch(e){
@@ -27,7 +27,7 @@ module.exports = (router, Users, passport) =>{
       if(e instanceof ValidationError) return res.status(400).json({message: e.message});
       if(e instanceof paramsError) return res.status(400).json({message: e.message});
     }
-    res.status(200).res.send({ success: true, message: 'SUCCESS' });
+    res.status(200).send({ success: true, message: 'SUCCESS' });
   })
 
   // .get('/auth/facebook', passport.authenticate('facebook'))

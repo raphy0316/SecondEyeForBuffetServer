@@ -42,7 +42,10 @@ var foodSchema = mongoose.Schema({
 });
 var locateSchema = mongoose.Schema({
   location : {type : Array},
-  id : {type : String}
+  id : {type : String},
+  pn : {type : String},
+  name : {type : String},
+  email : {type : String}
 });
 
 var Boards = mongoose.model('boards',boardSchema);

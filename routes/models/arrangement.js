@@ -11,7 +11,10 @@ module.exports = (router, Users, Locates, Foods)=>{
     const data = req.body;
     try{
         if(req.user){
-          data.id = req.user.id
+          data.id = req.user.id;
+	  data.email = req.user.email;
+	  data.pn = req.user.pn;
+	  data.name = req.user.name;
           Locates(data).save();
         }
       }catch(e){
