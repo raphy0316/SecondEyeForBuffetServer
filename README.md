@@ -6,7 +6,7 @@ mobile contest
 ### request
 id : {type : String},  
 passwd : {type : String},  
-is_admin : {type : String}//선택적 ustina0409 입력시 관리자 계정  
+
 
 ### respone
 
@@ -22,7 +22,7 @@ passwd : {type : String},
 name : {type : String},  
 email : {type : String},  
 pn : {type : String}   
-
+is_admin : {type : String}//선택사항 ustina0409 입력시 관리자 계정 생성
 
 ### respone
 
