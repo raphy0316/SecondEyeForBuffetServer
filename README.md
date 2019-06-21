@@ -1,5 +1,5 @@
 # SecondEyeForBuffetServer
-mobile contest
+## mobile contest
 
 # auth
 ## /auth/signin
@@ -58,7 +58,7 @@ is_admin : {type : String}//선택사항 ustina0409 입력시 관리자 계정 �
 # users
 ## /users
 ```gui 환경으로 유저관리(삭제, 관리자 권한 부여) 가능  
-관리자 계정만 접속 가능 (admin,admin)  
+관리자 계정만 접속 가능 (admin,admin) 게정 삭제가 이상한 듯하다. 조심하도록 하자.
 ```
 
 # arrangement
@@ -103,7 +103,19 @@ id : {type : String}//업자 id
 ```
 
 ### respone
-
+```
+{
+  "success":true,
+  "message":"SUCCESS",
+  "location":{
+                "id" = "dkdkd",
+                "name"="dkdkdk",
+                "email"="email",
+                "pn" = "0101001010",
+                "location" = [{x,y,id,num},....]
+             }
+}
+```
 
 
 ## /arrangement/host/food
@@ -113,3 +125,15 @@ id : {type : String}//도형 id
 ```
 
 ### respone
+{
+  "success":true,
+  "message":"SUCCESS",
+  "location":{
+              "id" : "gfds",  
+              "name" : "pizza",
+              "country" : "italia", 
+              "explain" : "deliciois",  
+              "material" : "meal", 
+              "allergy" : "shrimp"
+             }
+}
