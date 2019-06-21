@@ -139,3 +139,5 @@ id : {type : String}//도형 id
              }
 }
 ```
+서버 실행 : pm2 start npm -- start
+몽고 디비 실행 : mongod --fork --dbpath ~/MongoDB/datas/ --logpath ~/MongoDB/mongodb.log
