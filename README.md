@@ -38,12 +38,21 @@ pn : {type : String}
 is_admin : {type : String}//선택사항 ustina0409 입력시 관리자 계정 생성
 ```
 ### respone
-
-
+```
+{
+  "success":true,
+  "message":"SUCCESS"
+}
+```
 
 ## /auth/logout
 ### respone
-
+```
+{
+  "success":true,
+  "message":"SUCCESS"
+}
+```
 
 
 # users
@@ -62,6 +71,12 @@ ex)
 x : x 좌표  y : y좌표 id  id : 도형 id  num : 원>0 사각형>1  
 ```
 ### respone
+```
+{
+  "success":true,
+  "message":"SUCCESS"
+}
+```
 ## /arrangement/buffet/food/save
 ### request
 ```
@@ -73,7 +88,12 @@ material : {type : String},//주요재료
 allergy : {type : String}//알러지 유발 물질  
 ```
 ### respone
-
+```
+{
+  "success":true,
+  "message":"SUCCESS"
+}
+```
 
 
 ## /arrangement/host
