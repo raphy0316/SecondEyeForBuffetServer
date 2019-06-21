@@ -9,6 +9,15 @@ passwd : {type : String},
 
 
 ### respone
+```{
+  "success":true,
+  "message":"SUCCESS",
+  "user":{
+          "is_admin":false,
+          "id":"test",
+          "passwd":"test",
+          "__v":0}
+ }```
 
 
 
