@@ -12,13 +12,18 @@ passwd : {type : String},
 ### respone
 ```json
 {
-  "success":true,
-  "message":"SUCCESS",
-  "user":{
-          "is_admin":false,
-          "id":"test",
-          "passwd":"test",
-          "__v":0}
+    "success": true,
+    "message": "SUCCESS",
+    "user": {
+        "is_admin": false,
+        "_id": "5d0cdabcd320a61ed677ce5e",
+        "id": "test1234",
+        "passwd": "test1234",
+        "email": "test1234",
+        "pn": "test1234",
+        "name": "test1234",
+        "__v": 0
+    }
 }
 ```
 
@@ -73,8 +78,12 @@ x : x 좌표  y : y좌표 id  id : 도형 id  num : 원>0 사각형>1
 ### respone
 ```
 {
-  "success":true,
-  "message":"SUCCESS"
+    "success": true,
+    "message": "SUCCESS",
+    "data": {
+        "location": {dddd},
+        "id": "5d0cdabcd320a61ed677ce5e"
+    }
 }
 ```
 ## /arrangement/buffet/food/save
