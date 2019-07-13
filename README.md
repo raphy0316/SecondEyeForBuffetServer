@@ -86,6 +86,8 @@ x : x 좌표  y : y좌표 id  id : 도형 id  num : 원>0 사각형>1
     }
 }
 ```
+한토큰에 중복 저장시에는 duplicate id 
+
 ## /arrangement/buffet/food/save
 ### request
 ```
@@ -116,7 +118,7 @@ id : {type : String}//업자 id
 {
   "success":true,
   "message":"SUCCESS",
-  "location":{
+  "locates":{
                 "id" = "dkdkd",
                 "name"="dkdkdk",
                 "email"="email",
@@ -125,7 +127,8 @@ id : {type : String}//업자 id
              }
 }
 ```
-
+no id :
+위에 계정들이랑 뷔페 데이터는 별도 저장이라 데이터를 한번이라도 저장안하면 데이터가 없음 즉 no data란 뜻과도 같다.
 
 ## /arrangement/host/food
 ### request
