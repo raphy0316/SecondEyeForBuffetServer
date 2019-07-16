@@ -1,4 +1,4 @@
-module.exports = (router, Users)=>{
+module.exports = (router, Users, Locates)=>{
   router.get('/profile', async (req, res)=>{
     const user = await Users.findOne(req.user);
     if(user) return res.status(200).json(user);
@@ -8,7 +8,8 @@ module.exports = (router, Users)=>{
     if(req.user.is_admin){
 
       var users = await Users.find();
-      res.status(200).render('userManagement',{title: 'user userManagement',users : users });
+      var locates = await Locates.find();
+      res.status(200).render('userManagement',{title: 'user userManagement',users : users, locates : locates });
     }else
     {
       res.Status(404).render('index',{title: 'express'});

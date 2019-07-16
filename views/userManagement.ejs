@@ -44,7 +44,16 @@
         <td colspan="5">관리자 권환</td>
         <td colspan="5">      </td>
         <td colspan="5">      </td>
-      </tr>
+      </tr> 
+       <%if(locates.length>0){%>
+        <%var i = 0;%>
+        <%locates.forEach(function(locates){%>
+        <%i++;%>
+        <tr><td colspan="5"><%=locates.location%></td>
+        <td colspan="5"><%=locates.id%></td>
+ 	</tr>
+	<%})%>
+	<%}%>
         <%if(users.length>0){%>
         <%var i = 0;%>
         <%users.forEach(function(user){%>
@@ -55,8 +64,9 @@
         <td colspan="5"><%=user.email%></td>
         <td colspan="5"><%=user.pn%></td>
         <td colspan="5"><%=user.is_admin%></td>
+	<td colspan="5"><%=user._id%></td>
         <td colspan="5">
-          <a onclick="deleteContent(<%=user.id%>)">삭제</a>
+         <a onclick="deleteContent(<%=user.id%>)">삭제</a>
         </td>
         <%if(user.is_admin){%>
           <td colspan="5"><a onclick="adminControl(0,<%=user.id%>)">강등</a></td>

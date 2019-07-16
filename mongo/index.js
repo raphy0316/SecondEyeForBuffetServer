@@ -1,6 +1,6 @@
 var mongoose = require('mongoose');
 import rndString from "randomstring";
-mongoose.connect('mongodb://localhost:27017/db');
+mongoose.connect('mongodb://localhost:27017/db',{useFindAndModify : false});
 
 var name = require('../package.json');
 
@@ -40,22 +40,43 @@ var foodSchema = mongoose.Schema({
   material : {type : String},
   allergy : {type : String}
 });
+var locationSchema = mongoose.Schema({
+ x : {type : Number},
+ y : {type : Number},
+ id : {type : String},
+ num : {type : Number},
+ country : {type : String},
+ explain : {type : String},
+ material : {type : String},
+ allergy : {type : String},
+ name : {type : String}
+});
+
+
 var locateSchema = mongoose.Schema({
-  location : {type : Array},
-  id : {type : String},
-  pn : {type : String},
-  name : {type : String},
-  email : {type : String}
+ /*location : [{x : {type : Number},
+ y : {type : Number},
+ id : {type : String},
+ num : {type : Number},
+ country : {type : String},
+ explain : {type : String},
+ material : {type : String},
+ allergy : {type : String},
+ name : {type : String}}],*/
+  location : {type : String},
+  id : {type : String}
 });
 
 var Boards = mongoose.model('boards',boardSchema);
 var Users = mongoose.model('users', usersSchema);
 var Foods = mongoose.model('foods', foodSchema);
 var Locates = mongoose.model('locates', locateSchema);
+var Location = mongoose.model('location', locationSchema);
 
 exports.Boards = Boards;
 exports.Users = Users;
 exports.Locates = Locates;
 exports.Foods = Foods;
+exports.Location = Location;
 
 export default db;

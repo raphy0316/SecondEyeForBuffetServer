@@ -1,6 +1,6 @@
 module.exports = (router, Users, Foods, Locates, passport) =>{
   var auth = require('./models/auth')(router, Users, passport);
-  var users = require('./models/users')(router, Users);
+  var users = require('./models/users')(router, Users,Locates);
   var arrangement = require('./models/arrangement')(router, Users, Locates, Foods);
   router.use('/auth', auth);
   router.use('/users', users);
