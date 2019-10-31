@@ -20,7 +20,7 @@
     "express-device": "^0.4.2",
     "moment-timezone": "*",
     "mongoose": "*",
-    "morgan": "~1.7.0",
+    "morgan": "~1.9.1",
     "multer": "*",
     "passport": "*",
     "passport-facebook": "^2.1.1",
